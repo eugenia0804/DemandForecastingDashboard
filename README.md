@@ -34,14 +34,14 @@ To run, modify, or contribute to this project, you will need the following softw
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/eugenia0804/DemandForecastingDashboard.git](https://github.com/eugenia0804/DemandForecastingDashboard.git)
+    git clone https://github.com/eugenia0804/DemandForecastingDashboard.git
     cd DemandForecastingDashboard
     ```
 
 2.  **Create a virtual environment (recommended):**
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    python -m venv forecast_env
+    source forecast_env/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
 
 3.  **Install dependencies:**
