@@ -18,6 +18,11 @@ df['PROD_CAT'] = df['PROD_CAT'].map(prod_cat_map)
 # Step 3: Mask PROD_DESCRIPTION based on PROD_CAT
 df['PRODUCT_DESCRIPTION'] = df['PROD_CAT'].apply(lambda cat: f'{cat}_DES')
 
+# For SHIP_VIA_TYPE map all non NA value that is not equals to WILL CALL to UPS GROUND
+df['SHIP_VIA_TYPE'] = df['SHIP_VIA_TYPE'].str.strip()
+ship_via_map = {ship: 'UPS GROUND' for ship in df['SHIP_VIA_TYPE'].unique() if pd.notna(ship) and ship != 'WILL CALL'}
+df['SHIP_VIA_TYPE'] = df['SHIP_VIA_TYPE'].map(ship_via_map).fillna('WILL CALL')
+
 df.reset_index(drop=True, inplace=True)
 df.to_csv(output_file, index=False)
 print(f"Masked dataset saved to '{output_file}'")
