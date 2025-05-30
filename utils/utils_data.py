@@ -22,9 +22,9 @@ def filter_location(df, location_codes):
     Returns:
         pd.DataFrame: Filtered DataFrame containing only rows with specified location codes.
     """
-    df = df.dropna(subset=['HUB'])
-    df['HUB'] = df['HUB'].astype(int).astype(str)
-    sales_df = df[df['HUB'].isin(location_codes)]  
+    df = df.dropna(subset=['SHIPPING_PLANT'])
+    df['SHIPPING_PLANT'] = df['SHIPPING_PLANT'].astype(int).astype(str)
+    sales_df = df[df['SHIPPING_PLANT'].isin(location_codes)]  
     return sales_df
 
 def filter_shipment_method(df, shipment_methods):
@@ -53,8 +53,10 @@ def calculate_adi_cv2(df, group_by_cols, quantity_or_sales='QUANTITY'):
         lambda x: len(x) / max((x[quantity_or_sales] > 0).sum(), 1)
     )
     cv2 = df.groupby(group_by_cols)[quantity_or_sales].apply(
-        lambda x: (x.std() / x.mean())**2 if x.mean() != 0 else 0
+        # lambda x: (x.std() / x.mean())**2 if x.mean() != 0 else 0
+        lambda x: ((x.std(ddof=0) / x.mean())**2 if x.mean() != 0 else 0)
     ).fillna(0)
+
     non_zero_counts = df.groupby(group_by_cols)[quantity_or_sales].apply(lambda x: (x > 0).sum())
     return pd.DataFrame({
         'PRODUCT': adi.index.tolist(),
@@ -75,7 +77,7 @@ def determine_demand_type(df, quantity_or_sales="QUANTITY"):
     adi_cv2_df = calculate_adi_cv2(df, ['PRODUCT'], quantity_or_sales=quantity_or_sales)
     
     conditions = [
-        (adi_cv2_df['NonZeroCount'] < 10),  # less than 10 non-zero sales entries → NA
+        (adi_cv2_df['NonZeroCount'] < 13),  # less than 10 non-zero sales entries → NA
         (adi_cv2_df['ADI'] <= 1.32) & (adi_cv2_df['CV2'] <= 0.49),
         (adi_cv2_df['ADI'] > 1.32)  & (adi_cv2_df['CV2'] <= 0.49),
         (adi_cv2_df['ADI'] <= 1.32) & (adi_cv2_df['CV2'] > 0.49),
@@ -224,7 +226,8 @@ def get_split_dates(product_weekly):
     Returns:
         tuple: Minimum date, maximum date, and default date for the date slider.
     """
-    min_date = max(product_weekly.index.min().to_pydatetime(), pd.to_datetime("2024-01-01").to_pydatetime())
-    max_date = (product_weekly.index.max() - pd.Timedelta(days=30)).to_pydatetime() 
+    # min_date = max(product_weekly.index.min().to_pydatetime(), pd.to_datetime("2024-06-01").to_pydatetime())
+    min_date = (product_weekly.index.max() - pd.Timedelta(days=365)).to_pydatetime() 
+    max_date = product_weekly.index.max().to_pydatetime() 
     default_date = (product_weekly.index.max() - pd.Timedelta(days=90)).to_pydatetime() 
     return min_date, max_date, default_date

@@ -5,7 +5,6 @@ input_file = '#' # 'path/to/your/original_sales_df.csv'
 output_file = 'masked_sales_df.csv'
 
 df = pd.read_csv(input_file)
-df = df.drop(columns=['Unnamed: 0'])
 
 # Step 1: Mask PRODUCT codes
 product_map = {prod: f'PRODUCT_{i+1}' for i, prod in enumerate(df['PRODUCT'].unique())}

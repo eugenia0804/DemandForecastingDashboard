@@ -12,18 +12,18 @@ def forecast_sarima(train, test, order=(1, 1, 1), seasonal_order=(1, 1, 1, 13)):
     model = SARIMAX(train, order=order, seasonal_order=seasonal_order,
                     enforce_stationarity=False, enforce_invertibility=False)
     fit = model.fit(disp=False)
-    forecast = fit.forecast(steps=len(test)).clip(lower=0).round()
+    forecast = fit.forecast(steps=len(test)).clip(lower=0)
     return forecast.values, fit.params
 
 def forecast_holt_winters(train, test):
     model = ExponentialSmoothing(train, trend="add", seasonal="add", seasonal_periods=13)
     fit = model.fit()
-    forecast = fit.forecast(len(test)).clip(lower=0).round()
+    forecast = fit.forecast(len(test)).clip(lower=0)
     return forecast.values, fit.model.params
 
 def forecast_auto_arima(train, test):
     model = auto_arima(train, seasonal=False, stepwise=True, trace=False)
-    forecast = model.predict(n_periods=len(test)).clip(lower=0).round()
+    forecast = model.predict(n_periods=len(test)).clip(lower=0)
     return forecast, model.get_params()
 
 def forecast_bayesian(train, test, lags=13):

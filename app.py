@@ -86,6 +86,8 @@ if (train != 0).sum() < 13:
 
 # Calculate forecasts and MAPE for all models (cached)
 forecasts, rmse, mape, bias, mad = calculate_forecasts(train, test, model_options)
+if quantity_or_sales == "QUANTITY": forecasts = {k: v.round() for k, v in forecasts.items()}
+else: forecasts = {k: v.round(2) for k, v in forecasts.items()}
 # Find the best model based on MAPE
 best_model_name = min(mape, key=mape.get)
 best_model_forecast = forecasts[best_model_name]
@@ -101,7 +103,7 @@ selected_model_name = model_name_mapping[selected_display_name]
 selected_model = model_options[model_name_mapping[selected_display_name]]
 
 # Plot forecast vs actual curve
-forecast_days = ((max_date + timedelta(days=30)).date() - split_date.date()).days
+forecast_days = (max_date.date() - split_date.date()).days
 st.subheader("Forecast Results Visualization")
 st.markdown(f"**Number of days to forecast:** {str(forecast_days)}")
 forecast_data = forecasts[selected_model_name]
