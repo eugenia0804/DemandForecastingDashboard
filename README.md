@@ -1,5 +1,9 @@
 # Demand Forecasting Dashboard
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/32cb2669-d99b-430a-9196-abe4cc30d720" width="600" alt="Screenshot of the Home Screen">
+</p>
+
 ## Introduction 📊
 
 This repository contains the code for a **Demand Forecasting Dashboard**. The primary goal of this project is to provide a user-friendly interface for visualizing and predicting future demand for products or services. By leveraging historical data, this dashboard aims to help businesses make informed decisions regarding inventory management, resource allocation, and strategic planning.
