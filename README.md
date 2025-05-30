@@ -41,7 +41,7 @@ To run, modify, or contribute to this project, you will need the following softw
 2.  **Create a virtual environment (recommended):**
     ```bash
     python -m venv forecast_env
-    source forecast_env/bin/activate  # On Windows use `venv\Scripts\activate`
+    source forecast_env/bin/activate  # On Windows use `forecast_env\Scripts\activate`
     ```
 
 3.  **Install dependencies:**
