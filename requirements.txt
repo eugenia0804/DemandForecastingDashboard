@@ -5,3 +5,4 @@ matplotlib
 statsmodels
 pmdarima
 scikit-learn
+time

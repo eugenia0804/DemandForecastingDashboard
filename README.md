@@ -10,6 +10,7 @@ The dashboard allows users to:
 * Apply various forecasting models.
 * Visualize predicted demand alongside historical data.
 * Evaluate the accuracy of different forecasting models.
+* Exploring different caching algorithms and logging model runtime through the terminal.
 
 ## Software Requirements 💻
 
@@ -17,7 +18,7 @@ To run, modify, or contribute to this project, you will need the following softw
 
 * **Python:** The primary programming language used for this project. **Python 3.10 or higher** is generally recommended for compatibility with the listed libraries.
 * **Git:** For version control, cloning the repository, and contributing to changes.
-* **Required Python Libraries:** These can be found in the `requirements.txt` file and should be installed in your Python environment. They include:
+* **Required Python Libraries:** These can be found in the `requirements.txt` file and should be installed in your Python environment. Latest version of each of the library is highly recommended. They include:
     * `streamlit`: For creating and serving the interactive web dashboard.
     * `pandas`: Essential for data manipulation and analysis.
     * `numpy`: For numerical operations.
@@ -25,6 +26,7 @@ To run, modify, or contribute to this project, you will need the following softw
     * `statsmodels`: Used for time series analysis and statistical modeling.
     * `pmdarima`: For easy use of ARIMA and AutoARIMA models, simplifying time series forecasting.
     * `scikit-learn` (sklearn): Used for implementing machine learning models and utilities.
+    * `time`: For time logging in the terminal view.
 
 **To set up the environment, follow these steps:**
 
@@ -56,4 +58,4 @@ To run, modify, or contribute to this project, you will need the following softw
 
 This project was adapted from the **[IEMS 394: Client Project Challenge](https://www.mccormick.northwestern.edu/industrial/academics/undergraduate/client-project-challenge/)** for our client **[C.R. Laurence](https://www.crlaurence.com/)**, conducted under the guidance of the **Northwestern University [Department of Industrial Engineering & Management Sciences](https://www.mccormick.northwestern.edu/industrial/)**.
 
-Contributors to this project include my teammates [Dor Palkovic](https://www.linkedin.com/in/dorpalkovic/), [Tyler Tanaka-Wong](https://www.linkedin.com/in/tyler-tanaka-wong-17a4b5266/), and [Kevin Zhang](https://www.linkedin.com/in/kevinzhangkjz/). The development of this dashboard also benefited greatly from the insights of our advisor, [Edward C. Malthouse](https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/malthouse-edward.html), and the client-side representative involved in the original project. Their contributions were invaluable in shaping the direction and functionality of this tool.
+Contributors to this project include my teammates [Dor Palkovic](https://www.linkedin.com/in/dorpalkovic/), [Tyler Tanaka-Wong](https://www.linkedin.com/in/tyler-tanaka-wong-17a4b5266/), and [Kevin Zhang](https://www.linkedin.com/in/kevinzhangkjz/). The development of this dashboard also benefited greatly from the insights of our advisor, Prof [Edward C. Malthouse](https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/malthouse-edward.html), and the client-side representative involved in the original project. Their contributions were invaluable in shaping the direction and functionality of this tool.
