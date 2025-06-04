@@ -15,16 +15,16 @@ def forecast_sarima(train, test, order=(1, 1, 1), seasonal_order=(1, 1, 1, 13)):
     forecast = fit.forecast(steps=len(test)).clip(lower=0)
     return forecast.values, fit.params
 
+def forecast_auto_arima(train, test):
+    model = auto_arima(train, seasonal=True, stepwise=True, trace=False, n_jobs=1)
+    forecast = model.predict(n_periods=len(test)).clip(lower=0)
+    return forecast, model.get_params()
+
 def forecast_holt_winters(train, test):
     model = ExponentialSmoothing(train, trend="add", seasonal="add", seasonal_periods=13)
     fit = model.fit()
     forecast = fit.forecast(len(test)).clip(lower=0)
     return forecast.values, fit.model.params
-
-def forecast_auto_arima(train, test):
-    model = auto_arima(train, seasonal=False, stepwise=True, trace=False)
-    forecast = model.predict(n_periods=len(test)).clip(lower=0)
-    return forecast, model.get_params()
 
 def forecast_bayesian(train, test, lags=13):
     forecast_horizon = len(test)

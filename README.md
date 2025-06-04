@@ -14,6 +14,7 @@ The dashboard allows users to:
 * Apply various forecasting models.
 * Visualize predicted demand alongside historical data.
 * Evaluate the accuracy of different forecasting models.
+* Exploring different caching algorithms and logging model runtime through the terminal.
 
 ## Software Requirements 💻
 
@@ -21,7 +22,7 @@ To run, modify, or contribute to this project, you will need the following softw
 
 * **Python:** The primary programming language used for this project. **Python 3.10 or higher** is generally recommended for compatibility with the listed libraries.
 * **Git:** For version control, cloning the repository, and contributing to changes.
-* **Required Python Libraries:** These can be found in the `requirements.txt` file and should be installed in your Python environment. They include:
+* **Required Python Libraries:** These can be found in the `requirements.txt` file and should be installed in your Python environment. Latest version of each of the library is highly recommended. They include:
     * `streamlit`: For creating and serving the interactive web dashboard.
     * `pandas`: Essential for data manipulation and analysis.
     * `numpy`: For numerical operations.
@@ -29,6 +30,7 @@ To run, modify, or contribute to this project, you will need the following softw
     * `statsmodels`: Used for time series analysis and statistical modeling.
     * `pmdarima`: For easy use of ARIMA and AutoARIMA models, simplifying time series forecasting.
     * `scikit-learn` (sklearn): Used for implementing machine learning models and utilities.
+    * `time`: For time logging in the terminal view.
 
 **To set up the environment, follow these steps:**
 
