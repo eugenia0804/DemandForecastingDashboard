@@ -11,7 +11,7 @@ def log_timing(description, start_time, end_time):
     print(f"{description} in {elapsed_time:.2f} seconds.")
 
 # Load data
-DATA_PATH = "real_data/sales_loc=2-9-15_n=20_product=shower_after2022.csv"
+DATA_PATH = "masked_sales_df.csv"
 start_time = time.time()
 sales_df = load_sales_data(DATA_PATH)
 log_timing("Data loaded", start_time, time.time())
