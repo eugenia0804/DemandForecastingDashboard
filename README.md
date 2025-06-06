@@ -16,6 +16,8 @@ The dashboard allows users to:
 * Evaluate the accuracy of different forecasting models.
 * Exploring different caching algorithms and logging model runtime through the terminal.
 
+You can access the demo app at: https://demandforecastingdashboard.streamlit.app/
+
 ## Software Requirements 💻
 
 To run, modify, or contribute to this project, you will need the following software:
