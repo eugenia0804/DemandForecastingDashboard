@@ -1,6 +1,7 @@
 numpy==1.26.4
 Cython>=0.29
 pmdarima==2.0.4
+matplotlib
 streamlit
 pandas
 scikit-learn
