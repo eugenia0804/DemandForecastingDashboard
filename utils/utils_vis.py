@@ -47,7 +47,7 @@ def get_result_table(test, forecasts, selected_model_name):
              })
     pct_error = (abs(results_df['Forecast Value'] - results_df['Actual Value']) / results_df['Actual Value'].replace(0, pd.NA)) * 100
     pct_error = pct_error.fillna(np.nan)
-    results_df['Percentage Error (%)'] = results_df['Percentage Error (%)'].astype(float).round(3)
+    results_df['Percentage Error (%)'] = pct_error.astype(float).round(3)
     results_df['Absolute Error'] = (results_df['Forecast Value'] - results_df['Actual Value']).round(3)
     results_df.index = results_df.index.strftime('%Y-%m-%d')
     return results_df
