@@ -37,9 +37,10 @@ def get_result_table(test, forecasts, selected_model_name):
     Returns:
         pd.DataFrame: DataFrame containing actual values, forecasted values, percentage error, and absolute error.
     """
+    forecast_values = pd.to_numeric(forecasts[selected_model_name], errors='coerce')
     results_df = pd.DataFrame({
             'Actual Value': test.round(3),
-            'Forecast Value': forecasts[selected_model_name].round(3)
+            'Forecast Value': forecast_values[selected_model_name].round(3)
              })
     results_df['Percentage Error (%)'] = (abs(results_df['Forecast Value'] - results_df['Actual Value']) / results_df['Actual Value'].replace(0, pd.NA)) * 100
     results_df['Percentage Error (%)'] = results_df['Percentage Error (%)'].round(3)
