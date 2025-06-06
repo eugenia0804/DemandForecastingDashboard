@@ -3,5 +3,5 @@ pandas
 numpy
 matplotlib
 statsmodels
-pmdarima
+pmdarima==2.0.4
 scikit-learn
