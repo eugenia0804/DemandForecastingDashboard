@@ -30,7 +30,6 @@ To run, modify, or contribute to this project, you will need the following softw
     * `statsmodels`: Used for time series analysis and statistical modeling.
     * `pmdarima`: For easy use of ARIMA and AutoARIMA models, simplifying time series forecasting.
     * `scikit-learn` (sklearn): Used for implementing machine learning models and utilities.
-    * `time`: For time logging in the terminal view.
 
 **To set up the environment, follow these steps:**
 
